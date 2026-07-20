@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CINEMA ONLINE 2026</title>
+<style>
+body{
+  background:#f0f0f0;
+  text-align:center;
+}
+h1{
+  color:blue;
+}
+  
+</style>
+</head>
+<body>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CINEMA ONLINE 2026</title>
+<style>
+body{
+  background:#f0f0f0;
+  text-align:center;
+}
+h1{
+  color:blue;
+}
+  
+</style>
+
+<meta charset="UTF-8">
+<title>projeto</title>
+<style>
+body{
+  background:#f0f0f0;
+  text-align:center;
+}
+h1{
+  color:blue;
+}
+  
+</style>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cinema Online</title>
+
+<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#111;
+color:#fff;
+}
+
+header{
+background:#000;
+color:#ff0000;
+padding:15px;
+font-size:28px;
+font-weight:bold;
+text-align:center;
+}
+
+.categorias{
+
+background:#111;
+padding:15px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+
+}
+
+select{
+
+width:250px;
+padding:10px;
+background:#222;
+color:#fff;
+border:1px solid #555;
+border-radius:8px;
+
+}
+
+#atualizarLista{
+
+padding:8px 12px;
+font-size:12px;
+background:#333;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+opacity:.8;
+
+}
+
+#atualizarLista:hover{
+
+opacity:1;
+
+}
+
+.player{
+
+width:100%;
+max-width:1200px;
+margin:auto;
+padding:15px;
+
+}
+
+video{
+
+width:100%;
+border-radius:10px;
+
+}
+
+iframe{
+
+width:100%;
+height:700px;
+border:none;
+border-radius:10px;
+display:none;
+
+}
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:15px;
+padding:20px;
+
+}
+
+.card{
+
+background:#1d1d1d;
+border-radius:10px;
+overflow:hidden;
+cursor:pointer;
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:scale(1.05);
+
+}
+
+.card.focus{
+
+outline:4px solid #00bfff;
+transform:scale(1.08);
+
+}
+
+.card img{
+
+width:100%;
+height:260px;
+object-fit:cover;
+
+}
+
+.card h3{
+
+padding:10px;
+font-size:15px;
+text-align:center;
+
+}
+
+@media(max-width:1200px){
+
+.grid{
+grid-template-columns:repeat(4,1fr);
+}
+
+}
+
+@media(max-width:900px){
+
+.grid{
+grid-template-columns:repeat(3,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+.grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.card img{
+
+height:220px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+🎬 Cinema Online
+
+</header>
+
+<div class="categorias">
+
+<select id="categoria">
+
+<option value="todos">Todas as categorias</option>
+
+<option value="lancamento">Lançamento</option>
+
+<option value="ficcao">Ficção</option>
+
+<option value="series">Séries</option>
+
+<option value="esportes">Esportes</option>
+
+<option value="infantil">Infantil</option>
+
+<option value="documentarios">Documentários</option>
+
+<option value="musica">Música</option>
+
+<option value="comedia">Comédia</option>
+
+<option value="anime">Anime</option>
+
+<option value="religioso">Religioso</option>
+
+<option value="dorama">Dorama</option>
+
+<option value="suspense">Suspense</option>
+
+</select>
+
+<button id="atualizarLista">
+
+Atualizar Lista
+
+</button>
+
+</div>
+
+<div class="player">
+
+<video
+id="videoPlayer"
+playsinline
+controls
+preload="metadata"
+style="display:none;">
+</video>
+
+<iframe
+id="iframePlayer"
+allowfullscreen
+allow="autoplay; fullscreen">
+</iframe>
+
+</div>
+
+<div class="grid" id="gridFilmes">
+
+</div>
+
+<script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+
+<script>
+
+const enderecoRAW="https://raw.githubusercontent.com/Isac-Arqueiro/mylist/refs/heads/main/manifest.json";
+
+const player=new Plyr('#videoPlayer',{
+
+fullscreen:{enabled:true},
+
+controls:[
+'play-large',
+'play',
+'progress',
+'current-time',
+'mute',
+'volume',
+'settings',
+'pip',
+'airplay',
+'fullscreen'
+]
+
+});
+
+function trocar(url){
+
+const video=document.getElementById("videoPlayer");
+const iframe=document.getElementById("iframePlayer");
+
+if(
+url.includes("player.php") ||
+url.includes("embed") ||
+url.includes("iframe")
+){
+
+video.pause();
+
+video.style.display="none";
+
+iframe.style.display="block";
+
+iframe.src=url;
+
+return;
+
+}
+
+iframe.style.display="none";
+iframe.src="";
+
+video.style.display="block";
+
+video.src=url;
+
+video.load();
+
+video.play().catch(()=>{});
+
+}
+
+async function carregarFilmes(){
+
+try{
+
+const resposta=await fetch(enderecoRAW+"?v="+Date.now());
+
+const filmes=await resposta.json();
+
+const grid=document.getElementById("gridFilmes");
+
+grid.innerHTML="";
+
+filmes.forEach(f=>{
+
+let categoria=f.categoria.toLowerCase();
+
+grid.innerHTML+=`
+
+<div class="card ${categoria}" onclick="trocar('${f.video}')">
+
+<img src="${f.imagem}">
+
+<h3>${f.titulo}</h3>
+
+</div>
+
+`;
+
+});
+
+atualizarFoco();
+
+}catch(erro){
+
+alert("Erro ao carregar os filmes.");
+
+console.log(erro);
+
+}
+
+}
+
+window.onload=function(){
+
+carregarFilmes();
+
+};
+
+document.getElementById("atualizarLista").onclick=function(){
+
+carregarFilmes();
+
+};
+
+</script>
+<script>
+
+function filtrarCategoria(){
+
+let categoria=document.getElementById("categoria").value;
+
+let filmes=document.querySelectorAll(".card");
+
+
+filmes.forEach(function(filme){
+
+
+if(categoria=="todos"){
+
+filme.style.display="block";
+
+}
+
+else if(filme.classList.contains(categoria.toLowerCase())){
+
+filme.style.display="block";
+
+}
+
+else{
+
+filme.style.display="none";
+
+}
+
+
+});
+
+
+foco=0;
+
+atualizarFoco();
+
+
+}
+
+
+// ==============================
+// CONTROLE REMOTO
+// ==============================
+
+
+let foco=0;
+
+
+function atualizarFoco(){
+
+
+let cards=[...document.querySelectorAll(".card")]
+
+.filter(c=>c.style.display!="none");
+
+
+document.querySelectorAll(".card").forEach(c=>{
+
+c.classList.remove("focus");
+
+});
+
+
+if(cards.length==0)return;
+
+
+if(foco<0){
+
+foco=0;
+
+}
+
+
+if(foco>=cards.length){
+
+foco=cards.length-1;
+
+}
+
+
+cards[foco].classList.add("focus");
+
+
+cards[foco].scrollIntoView({
+
+behavior:"smooth",
+
+block:"center"
+
+});
+
+
+}
+
+
+
+document.addEventListener("keydown",function(e){
+
+
+let cards=[...document.querySelectorAll(".card")]
+
+.filter(c=>c.style.display!="none");
+
+
+
+switch(e.key){
+
+
+case "ArrowRight":
+
+foco++;
+
+atualizarFoco();
+
+break;
+
+
+
+case "ArrowLeft":
+
+foco--;
+
+atualizarFoco();
+
+break;
+
+
+
+case "ArrowDown":
+
+foco+=5;
+
+atualizarFoco();
+
+break;
+
+
+
+case "ArrowUp":
+
+foco-=5;
+
+atualizarFoco();
+
+break;
+
+
+
+case "Enter":
+
+if(cards[foco]){
+
+cards[foco].click();
+
+}
+
+break;
+
+
+
+case "Escape":
+
+history.back();
+
+break;
+
+
+}
+
+
+});
+
+
+
+document.getElementById("categoria").addEventListener("change",filtrarCategoria);
+
+
+</script>
+
+
+</body>
+
+</html>
+
+<script>
+console.log("Funcionando!");
+  
+</script>
+
+</body>
+</html>
+  
+
+<script>
+console.log("Funcionando!");
+  
+</script>
+
+</body>
+</html>
+  
+
+<script>
+console.log("Funcionando!");
+  
+</script>
+
+</body>
+</html>
+  
