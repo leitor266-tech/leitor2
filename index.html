@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,54 +88,147 @@ font-weight:bold;
 text-align:center;
 }
 
-.categorias{
+.layout{
 
-background:#111;
-padding:15px;
 display:flex;
-justify-content:center;
-align-items:center;
-gap:10px;
-flex-wrap:wrap;
+
+height:calc(100vh - 70px);
+
+overflow:hidden;
 
 }
 
-select{
+/* MENU LATERAL */
 
-width:250px;
-padding:10px;
-background:#222;
-color:#fff;
-border:1px solid #555;
+.menuLateral{
+
+width:240px;
+
+background:#0d0d0d;
+
+padding:15px;
+
+overflow-y:auto;
+
+border-right:1px solid #222;
+
+}
+
+/* BOTÕES DO MENU */
+
+.menuItem{
+
+padding:14px;
+
+margin-bottom:8px;
+
 border-radius:8px;
 
-}
+background:#1a1a1a;
 
-#atualizarLista{
-
-padding:8px 12px;
-font-size:12px;
-background:#333;
-color:white;
-border:none;
-border-radius:6px;
 cursor:pointer;
-opacity:.8;
+
+font-size:18px;
+
+transition:.2s;
 
 }
 
-#atualizarLista:hover{
+/* ITEM SELECIONADO */
 
-opacity:1;
+.menuItem.active{
+
+background:#0078ff;
+
+font-weight:bold;
 
 }
+
+.menuItem.focus{
+
+outline:4px solid #00bfff;
+
+background:#006eff;
+
+transform:scale(1.05);
+
+}
+
+/* QUANDO PASSAR O FOCO */
+
+.menuItem:hover{
+
+background:#0060d0;
+
+}
+
+/* ÁREA DA DIREITA */
+
+.conteudo{
+
+flex:1;
+
+display:flex;
+
+flex-direction:column;
+
+overflow:hidden;
+
+}
+
+/* PLAYER */
 
 .player{
 
-width:100%;
-max-width:1200px;
-margin:auto;
 padding:15px;
+
+background:#000;
+
+}
+
+/* PLAYER PEQUENO */
+
+.player video{
+
+width:100%;
+
+max-height:320px;
+
+background:#000;
+
+border-radius:10px;
+
+}
+
+/* IFRAME */
+
+.player iframe{
+
+width:100%;
+
+height:320px;
+
+display:none;
+
+border-radius:10px;
+
+}
+
+/* LISTA */
+
+.grid{
+
+flex:1;
+
+overflow-y:auto;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+
+gap:18px;
+
+padding:20px;
 
 }
 
@@ -155,51 +249,59 @@ display:none;
 
 }
 
-.grid{
-
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:15px;
-padding:20px;
-
-}
-
 .card{
 
-background:#1d1d1d;
+background:#1b1b1b;
+
 border-radius:10px;
+
 overflow:hidden;
+
 cursor:pointer;
-transition:.3s;
+
+transition:.2s;
+
+border:3px solid transparent;
 
 }
 
 .card:hover{
 
-transform:scale(1.05);
+transform:scale(1.04);
+
+border-color:#0078ff;
 
 }
 
 .card.focus{
 
-outline:4px solid #00bfff;
+outline:5px solid #00bfff;
+
 transform:scale(1.08);
+
+z-index:5;
 
 }
 
 .card img{
 
 width:100%;
-height:260px;
+
+height:300px;
+
 object-fit:cover;
 
 }
 
 .card h3{
 
-padding:10px;
-font-size:15px;
+padding:12px;
+
+font-size:18px;
+
 text-align:center;
+
+font-weight:bold;
 
 }
 
@@ -233,6 +335,26 @@ height:220px;
 
 }
 
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#444;
+
+border-radius:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#111;
+
+}
+
 </style>
 
 </head>
@@ -245,67 +367,73 @@ height:220px;
 
 </header>
 
-<div class="categorias">
+<div class="layout">
 
-<select id="categoria">
+    <div class="menuLateral">
 
-<option value="todos">Todas as categorias</option>
+        <div class="menuItem active" data-cat="todos">Todos</div>
 
-<option value="lancamento">Lançamento</option>
+        <div class="menuItem" data-cat="canais">Canais</div>
 
-<option value="canais">Canais</option>
+        <div class="menuItem" data-cat="lancamento">Lançamentos</div>
 
-<option value="ficcao">Ficção</option>
+        <div class="menuItem" data-cat="ficcao">Ficção</div>
 
-<option value="series">Séries</option>
+        <div class="menuItem" data-cat="series">Séries</div>
 
-<option value="esportes">Esportes</option>
+        <div class="menuItem" data-cat="esportes">Esportes</div>
 
-<option value="infantil">Infantil</option>
+        <div class="menuItem" data-cat="infantil">Infantil</div>
 
-<option value="documentarios">Documentários</option>
+        <div class="menuItem" data-cat="documentarios">Documentários</div>
 
-<option value="musica">Música</option>
+        <div class="menuItem" data-cat="musica">Música</div>
 
-<option value="comedia">Comédia</option>
+        <div class="menuItem" data-cat="comedia">Comédia</div>
 
-<option value="anime">Anime</option>
+        <div class="menuItem" data-cat="anime">Anime</div>
 
-<option value="religioso">Religioso</option>
+        <div class="menuItem" data-cat="religioso">Religioso</div>
 
-<option value="dorama">Dorama</option>
+        <div class="menuItem" data-cat="dorama">Dorama</div>
 
-<option value="suspense">Suspense</option>
+        <div class="menuItem" data-cat="suspense">Suspense</div>
 
-</select>
+        <button id="atualizarLista">
 
-<button id="atualizarLista">
+            Atualizar Lista
 
-Atualizar Lista
+        </button>
 
-</button>
+    </div>
+
+    <div class="conteudo">
+
+        <div class="player">
+
+            <video
+                id="videoPlayer"
+                playsinline
+                controls
+                preload="metadata"
+                style="display:none;">
+            </video>
+
+            <iframe
+                id="iframePlayer"
+                allowfullscreen
+                allow="autoplay; fullscreen">
+            </iframe>
+
+        </div>
+
+        <div class="grid" id="gridFilmes">
+
+        </div>
+
+    </div>
 
 </div>
-
-<div class="player">
-
-<video
-id="videoPlayer"
-playsinline
-controls
-preload="metadata"
-style="display:none;">
-</video>
-
-<iframe
-id="iframePlayer"
-allowfullscreen
-allow="autoplay; fullscreen">
-</iframe>
-
-</div>
-
-<div class="grid" id="gridFilmes">
 
 </div>
 
@@ -314,7 +442,7 @@ allow="autoplay; fullscreen">
 
 <script>
 
-const enderecoRAW="https://raw.githubusercontent.com/Isac-Arqueiro/mylist/refs/heads/main/manifest.json";
+const enderecoRAW="https://raw.githubusercontent.com/Isac-Arqueiro/mylist/master/canais.m3u";
 
 const player=new Plyr('#videoPlayer',{
 
@@ -335,61 +463,105 @@ controls:[
 
 });
 
+let hls;
+
 function trocar(url){
 
-const video=document.getElementById("videoPlayer");
-const iframe=document.getElementById("iframePlayer");
+    const video = document.getElementById("videoPlayer");
+    const iframe = document.getElementById("iframePlayer");
 
-if(
-url.includes("player.php") ||
-url.includes("embed") ||
-url.includes("iframe")
-){
+    // Fecha iframe
+    iframe.style.display = "none";
+    iframe.src = "";
 
-video.pause();
+    video.style.display = "block";
 
-video.style.display="none";
+    // Destroi player anterior
+    if(hls){
+        hls.destroy();
+        hls = null;
+    }
 
-iframe.style.display="block";
+    // Se for M3U8
+    if(url.endsWith(".m3u8")){
 
-iframe.src=url;
+        if(Hls.isSupported()){
 
-return;
+            hls = new Hls({
+                enableWorker:true,
+                lowLatencyMode:true
+            });
+
+            hls.loadSource(url);
+            hls.attachMedia(video);
+
+            hls.on(Hls.Events.MANIFEST_PARSED,function(){
+                video.play();
+            });
+
+            hls.on(Hls.Events.ERROR,function(event,data){
+                console.log(data);
+            });
+
+        }else if(video.canPlayType("application/vnd.apple.mpegurl")){
+
+            video.src = url;
+            video.play();
+
+        }
+
+        return;
+    }
+
+    // MP4
+    video.src = url;
+    video.load();
+    video.play();
 
 }
 
-iframe.style.display="none";
-iframe.src="";
 
-video.style.display="block";
+async function carregarFilmes() {
 
-video.src=url;
+    try {
 
-video.load();
+        const resposta = await fetch(enderecoRAW + "?v=" + Date.now());
 
-video.play().catch(()=>{});
+        const texto = await resposta.text();
 
-}
+        let lista = [];
 
-async function carregarFilmes(){
+        // JSON
+        if (texto.trim().startsWith("[")) {
 
-try{
+            lista = JSON.parse(texto);
 
-const resposta=await fetch(enderecoRAW+"?v="+Date.now());
+        }
 
-const filmes=await resposta.json();
+        // M3U
+        else if (texto.includes("#EXTM3U")) {
 
-const grid=document.getElementById("gridFilmes");
+            lista = converterM3U(texto);
 
-grid.innerHTML="";
+        }
 
-filmes.forEach(f=>{
+        const grid = document.getElementById("gridFilmes");
 
-let categoria=f.categoria.toLowerCase();
+        grid.innerHTML = "";
 
-grid.innerHTML+=`
+        lista.forEach(f => {
 
-<div class="card ${categoria}" onclick="trocar('${f.video}')">
+            grid.innerHTML += `
+
+<div
+
+class="card ${f.categoria.toLowerCase()}"
+
+data-video="${f.video}"
+
+data-categoria="${f.categoria.toLowerCase()}"
+
+>
 
 <img src="${f.imagem}">
 
@@ -399,17 +571,95 @@ grid.innerHTML+=`
 
 `;
 
-});
+        });
 
-atualizarFoco();
+        ligarEventosCards();
 
-}catch(erro){
+        filtrarCategoria();
 
-alert("Erro ao carregar os filmes.");
+    } catch (e) {
 
-console.log(erro);
+        console.log(e);
+
+        alert("Erro ao carregar lista.");
+
+    }
 
 }
+
+function ligarEventosCards(){
+
+    document.querySelectorAll(".card").forEach(card=>{
+
+        card.onclick=function(){
+
+            trocar(this.dataset.video);
+
+        }
+
+    });
+
+}
+
+function converterM3U(m3u) {
+
+    const linhas = m3u.split("\n");
+
+    const lista = [];
+
+    let titulo = "";
+    let imagem = "";
+    let categoria = "";
+
+    for (let i = 0; i < linhas.length; i++) {
+
+        const linha = linhas[i].trim();
+
+        if (linha.startsWith("#EXTINF")) {
+
+            const nome = linha.match(/,(.*)$/);
+
+            titulo = nome ? nome[1] : "Sem título";
+
+            const logo = linha.match(/tvg-logo="([^"]*)"/);
+
+            imagem = logo && logo[1] !== ""
+                ? logo[1]
+                : "https://via.placeholder.com/300x450?text=SEM+CAPA";
+
+            const grupo = linha.match(/group-title="([^"]*)"/);
+
+            categoria = grupo
+                ? grupo[1]
+                    .replace("C •", "")
+                    .trim()
+                    .toLowerCase()
+                : "canais";
+
+        }
+
+        else if (
+            linha.startsWith("http://") ||
+            linha.startsWith("https://")
+        ) {
+
+            lista.push({
+
+                titulo,
+
+                imagem,
+
+                video: linha,
+
+                categoria
+
+            });
+
+        }
+
+    }
+
+    return lista;
 
 }
 
@@ -417,7 +667,7 @@ window.onload=function(){
 
 carregarFilmes();
 
-};
+}
 
 document.getElementById("atualizarLista").onclick=function(){
 
@@ -428,96 +678,165 @@ carregarFilmes();
 </script>
 <script>
 
+// ==============================
+// MENU LATERAL
+// ==============================
+
+let categoriaAtual = "todos";
+
+const menu = document.querySelectorAll(".menuItem");
+
+menu.forEach(item=>{
+
+    item.onclick=function(){
+
+        menu.forEach(m=>m.classList.remove("active"));
+
+        this.classList.add("active");
+
+        categoriaAtual=this.dataset.cat;
+
+        filtrarCategoria();
+
+    }
+
+});
+
 function filtrarCategoria(){
 
-let categoria=document.getElementById("categoria").value;
+    const cards=document.querySelectorAll(".card");
 
-let filmes=document.querySelectorAll(".card");
+    cards.forEach(card=>{
 
+        if(categoriaAtual=="todos"){
 
-filmes.forEach(function(filme){
+            card.style.display="block";
 
+        }
 
-if(categoria=="todos"){
+        else if(card.classList.contains(categoriaAtual)){
 
-filme.style.display="block";
+            card.style.display="block";
 
-}
+        }
 
-else if(filme.classList.contains(categoria.toLowerCase())){
+        else{
 
-filme.style.display="block";
+            card.style.display="none";
 
-}
+        }
 
-else{
+    });
 
-filme.style.display="none";
+    focoLista=0;
 
-}
-
-
-});
-
-
-foco=0;
-
-atualizarFoco();
-
+    atualizarFocoLista();
 
 }
 
-
-// ==============================
-// CONTROLE REMOTO
-// ==============================
-
-
-let foco=0;
+// ==================================
+// CONTROLE REMOTO TV
+// ==================================
 
 
-function atualizarFoco(){
+let areaFoco = "menu";
+
+let focoMenu = 0;
+
+let focoLista = 0;
 
 
-let cards=[...document.querySelectorAll(".card")]
 
-.filter(c=>c.style.display!="none");
+function pegarMenu(){
 
-
-document.querySelectorAll(".card").forEach(c=>{
-
-c.classList.remove("focus");
-
-});
-
-
-if(cards.length==0)return;
-
-
-if(foco<0){
-
-foco=0;
+    return [...document.querySelectorAll(".menuItem")];
 
 }
 
 
-if(foco>=cards.length){
 
-foco=cards.length-1;
+function pegarLista(){
+
+    return [...document.querySelectorAll(".card")]
+    .filter(c=>c.style.display!="none");
 
 }
 
 
-cards[foco].classList.add("focus");
+
+function atualizarFocoRemoto(){
 
 
-cards[foco].scrollIntoView({
+    document.querySelectorAll(".menuItem")
+    .forEach(item=>{
 
-behavior:"smooth",
+        item.classList.remove("focus");
 
-block:"center"
+    });
 
-});
+
+
+    document.querySelectorAll(".card")
+    .forEach(item=>{
+
+        item.classList.remove("focus");
+
+    });
+
+
+
+    if(areaFoco=="menu"){
+
+
+        let menu=pegarMenu();
+
+
+        if(menu[focoMenu]){
+
+
+            menu[focoMenu].classList.add("focus");
+
+
+            menu[focoMenu]
+            .scrollIntoView({
+
+                block:"center"
+
+            });
+
+
+        }
+
+
+    }
+
+
+
+    else{
+
+
+        let lista=pegarLista();
+
+
+        if(lista[focoLista]){
+
+
+            lista[focoLista]
+            .classList.add("focus");
+
+
+            lista[focoLista]
+            .scrollIntoView({
+
+                block:"center"
+
+            });
+
+
+        }
+
+
+    }
 
 
 }
@@ -527,82 +846,205 @@ block:"center"
 document.addEventListener("keydown",function(e){
 
 
-let cards=[...document.querySelectorAll(".card")]
-
-.filter(c=>c.style.display!="none");
+let tecla=e.key;
 
 
 
-switch(e.key){
+let menu=pegarMenu();
 
-
-case "ArrowRight":
-
-foco++;
-
-atualizarFoco();
-
-break;
+let lista=pegarLista();
 
 
 
-case "ArrowLeft":
-
-foco--;
-
-atualizarFoco();
-
-break;
+switch(tecla){
 
 
 
 case "ArrowDown":
 
-foco+=5;
 
-atualizarFoco();
+if(areaFoco=="menu"){
+
+
+focoMenu++;
+
+
+if(focoMenu>=menu.length)
+
+focoMenu=menu.length-1;
+
+
+}
+
+
+else{
+
+
+focoLista++;
+
+
+if(focoLista>=lista.length)
+
+focoLista=lista.length-1;
+
+
+}
+
+
+
+atualizarFocoRemoto();
+
 
 break;
+
+
 
 
 
 case "ArrowUp":
 
-foco-=5;
 
-atualizarFoco();
+if(areaFoco=="menu"){
+
+
+focoMenu--;
+
+
+if(focoMenu<0)
+
+focoMenu=0;
+
+
+}
+
+
+else{
+
+
+focoLista--;
+
+
+if(focoLista<0)
+
+focoLista=0;
+
+
+}
+
+
+
+atualizarFocoRemoto();
+
 
 break;
+
+
+
+
+
+case "ArrowRight":
+
+
+if(areaFoco=="menu"){
+
+
+areaFoco="lista";
+
+
+focoLista=0;
+
+
+}
+
+
+atualizarFocoRemoto();
+
+
+break;
+
+
+
+
+
+case "ArrowLeft":
+
+
+if(areaFoco=="lista"){
+
+
+areaFoco="menu";
+
+
+}
+
+
+atualizarFocoRemoto();
+
+
+break;
+
+
 
 
 
 case "Enter":
 
-if(cards[foco]){
 
-cards[foco].click();
+
+if(areaFoco=="menu"){
+
+
+menu[focoMenu].click();
+
+
+areaFoco="lista";
+
+
+focoLista=0;
+
 
 }
 
+
+else{
+
+
+if(lista[focoLista]){
+
+
+lista[focoLista].click();
+
+
+}
+
+
+}
+
+
+
+atualizarFocoRemoto();
+
+
 break;
+
 
 
 
 case "Escape":
 
+
 history.back();
 
+
 break;
+
 
 
 }
 
 
+
 });
-
-
-
-document.getElementById("categoria").addEventListener("change",filtrarCategoria);
 
 
 </script>
@@ -727,3 +1169,13 @@ if ("serviceWorker" in navigator) {
 </script>
 </body>
 </html>
+
+
+<script>
+console.log("Funcionando!");
+  
+</script>
+
+</body>
+</html>
+  
