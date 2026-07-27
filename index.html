@@ -1,42 +1,10 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="manifest" href="./manifest.json">
-<meta name="theme-color" content="#000000">
-<meta charset="UTF-8">
-<title>CINEMA ONLINE 2026</title>
-<style>
-body{
-  background:#f0f0f0;
-  text-align:center;
-}
-h1{
-  color:blue;
-}
-  
-</style>
-</head>
-<body>
 
 
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>CINEMA ONLINE 2026</title>
-<style>
-body{
-  background:#f0f0f0;
-  text-align:center;
-}
-h1{
-  color:blue;
-}
-  
-</style>
-
 <meta charset="UTF-8">
 <title>projeto</title>
 <style>
@@ -54,6 +22,7 @@ h1{
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 
 <meta charset="UTF-8">
@@ -61,303 +30,408 @@ h1{
 
 <title>Cinema Online</title>
 
-<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
+<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
 body{
-background:#111;
-color:#fff;
+    background:#111;
+    color:#fff;
 }
 
 header{
-background:#000;
-color:#ff0000;
-padding:15px;
-font-size:28px;
-font-weight:bold;
-text-align:center;
+    background:#000;
+    color:#ff0000;
+    padding:15px;
+    font-size:28px;
+    font-weight:bold;
+    text-align:center;
 }
+
 
 .layout{
 
-display:flex;
-
-height:calc(100vh - 70px);
-
-overflow:hidden;
+    display:flex;
+    height:calc(100vh - 70px);
+    overflow:hidden;
 
 }
 
-/* MENU LATERAL */
+
+/* MENU */
 
 .menuLateral{
 
-width:240px;
-
-background:#0d0d0d;
-
-padding:15px;
-
-overflow-y:auto;
-
-border-right:1px solid #222;
+    width:240px;
+    background:#0d0d0d;
+    padding:15px;
+    overflow-y:auto;
+    border-right:1px solid #222;
 
 }
 
-/* BOTÕES DO MENU */
 
 .menuItem{
 
-padding:14px;
-
-margin-bottom:8px;
-
-border-radius:8px;
-
-background:#1a1a1a;
-
-cursor:pointer;
-
-font-size:18px;
-
-transition:.2s;
+    padding:14px;
+    margin-bottom:8px;
+    border-radius:8px;
+    background:#1a1a1a;
+    cursor:pointer;
+    font-size:18px;
+    transition:.2s;
 
 }
 
-/* ITEM SELECIONADO */
 
 .menuItem.active{
 
-background:#0078ff;
-
-font-weight:bold;
+    background:#0078ff;
+    font-weight:bold;
 
 }
+
 
 .menuItem.focus{
 
-outline:4px solid #00bfff;
-
-background:#006eff;
-
-transform:scale(1.05);
+    outline:4px solid #00bfff;
+    background:#006eff;
+    transform:scale(1.05);
 
 }
 
-/* QUANDO PASSAR O FOCO */
 
 .menuItem:hover{
 
-background:#0060d0;
+    background:#0060d0;
 
 }
 
-/* ÁREA DA DIREITA */
+
+/* CONTEÚDO */
 
 .conteudo{
 
-flex:1;
-
-display:flex;
-
-flex-direction:column;
-
-overflow:hidden;
+    flex:1;
+    display:flex;
+    overflow:hidden;
 
 }
+
+/* COLUNA DE CANAIS */
+
+.listaCanais{
+
+    width:330px;
+    background:#181818;
+    border-right:1px solid #333;
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+/* COLUNA DO PLAYER */
+
+.playerArea{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:#000;
+
+}
+
 
 /* PLAYER */
 
 .player{
 
-padding:15px;
+    flex:1;
 
-background:#000;
+    padding:15px;
+
+    background:#000;
 
 }
 
-/* PLAYER PEQUENO */
 
 .player video{
 
-width:100%;
-
-max-height:320px;
-
-background:#000;
-
-border-radius:10px;
+    width:100%;
+    height:auto;
+    background:#000;
+    border-radius:10px;
 
 }
 
-/* IFRAME */
 
 .player iframe{
 
-width:100%;
-
-height:320px;
-
-display:none;
-
-border-radius:10px;
+    width:100%;
+    height:320px;
+    display:none;
+    border-radius:10px;
 
 }
 
-/* LISTA */
+/* TÍTULOS DAS COLUNAS */
+
+.tituloColuna{
+
+    background:#000;
+
+    padding:14px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+    border-bottom:1px solid #333;
+
+}
+
+/* LISTA DOS CANAIS */
+
+#listaCanais{
+
+    flex:1;
+
+    overflow-y:auto;
+
+}
+
+/* ITEM DO CANAL */
+
+.canal{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:12px;
+
+    cursor:pointer;
+
+    border-bottom:1px solid #2b2b2b;
+
+    transition:.2s;
+
+}
+
+.canal:hover{
+
+    background:#006eff;
+
+}
+
+.canal.active{
+
+    background:#0078ff;
+
+}
+
+.canal.focus{
+
+    outline:4px solid #00bfff;
+
+}
+
+.canal img{
+
+    width:60px;
+
+    height:60px;
+
+    object-fit:contain;
+
+    background:#000;
+
+    border-radius:8px;
+
+}
+
+.canal span{
+
+    font-size:18px;
+
+    color:#fff;
+
+}
+
+
+/* GRID */
 
 .grid{
 
-flex:1;
+    flex:1;
+    overflow-y:auto;
 
-overflow-y:auto;
+    display:grid;
 
-display:grid;
+    grid-template-columns:
+    repeat(auto-fill,minmax(220px,1fr));
 
-grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:18px;
 
-gap:18px;
-
-padding:20px;
-
-}
-
-video{
-
-width:100%;
-border-radius:10px;
+    padding:20px;
 
 }
 
-iframe{
 
-width:100%;
-height:700px;
-border:none;
-border-radius:10px;
-display:none;
-
-}
+/* CARDS */
 
 .card{
 
-background:#1b1b1b;
+    background:#1b1b1b;
 
-border-radius:10px;
+    border-radius:10px;
 
-overflow:hidden;
+    overflow:hidden;
 
-cursor:pointer;
+    cursor:pointer;
 
-transition:.2s;
+    transition:.2s;
 
-border:3px solid transparent;
+    border:3px solid transparent;
 
 }
+
 
 .card:hover{
 
-transform:scale(1.04);
-
-border-color:#0078ff;
+    transform:scale(1.04);
+    border-color:#0078ff;
 
 }
+
 
 .card.focus{
 
-outline:5px solid #00bfff;
-
-transform:scale(1.08);
-
-z-index:5;
+    outline:5px solid #00bfff;
+    transform:scale(1.08);
+    z-index:5;
 
 }
+
 
 .card img{
 
-width:100%;
-
-height:300px;
-
-object-fit:cover;
+    width:100%;
+    height:300px;
+    object-fit:cover !important;
 
 }
+
 
 .card h3{
 
-padding:12px;
-
-font-size:18px;
-
-text-align:center;
-
-font-weight:bold;
+    padding:12px;
+    font-size:18px;
+    text-align:center;
 
 }
+
+
+/* RESPONSIVO */
 
 @media(max-width:1200px){
 
 .grid{
-grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
 }
 
 }
+
 
 @media(max-width:900px){
 
 .grid{
-grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
 }
 
 }
+
 
 @media(max-width:600px){
 
 .grid{
-grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
 }
+
 
 .card img{
 
-height:220px;
+    height:220px;
 
 }
 
 }
+
+
+/* BARRA ROLAGEM */
 
 ::-webkit-scrollbar{
 
-width:10px;
+    width:10px;
 
 }
+
 
 ::-webkit-scrollbar-thumb{
 
-background:#444;
-
-border-radius:10px;
+    background:#444;
+    border-radius:10px;
 
 }
 
+
 ::-webkit-scrollbar-track{
 
-background:#111;
+    background:#111;
 
+}
+
+/* vídeo em tela cheia */
+.plyr--fullscreen-active video,
+.plyr--fullscreen-active .plyr__video-wrapper video {
+    width:100%;
+    height:100%;
+    max-height:none;
+    object-fit:cover !important;
+}
+
+
+/* container do player em fullscreen */
+.plyr--fullscreen-active .plyr__video-wrapper {
+    height:100vh;
+}
+
+
+/* remove bordas no fullscreen */
+.plyr--fullscreen-active video {
+    border-radius:0;
 }
 
 </style>
 
 </head>
-
 <body>
+
 
 <header>
 
@@ -365,47 +439,135 @@ background:#111;
 
 </header>
 
+
 <div class="layout">
+
 
     <div class="menuLateral">
 
-        <div class="menuItem active" data-cat="todos">Todos</div>
 
-        <div class="menuItem" data-cat="canais">Canais</div>
+        <div class="menuItem active" data-cat="todos">
+            Todos
+        </div>
 
-        <div class="menuItem" data-cat="lancamento">Lançamentos</div>
 
-        <div class="menuItem" data-cat="ficcao">Ficção</div>
+        <div class="menuItem" data-cat="globo">
+            Globo
+        </div>
 
-        <div class="menuItem" data-cat="series">Séries</div>
 
-        <div class="menuItem" data-cat="esportes">Esportes</div>
+        <div class="menuItem" data-cat="religioso">
+            Religioso
+        </div>
 
-        <div class="menuItem" data-cat="infantil">Infantil</div>
 
-        <div class="menuItem" data-cat="documentarios">Documentários</div>
+        <div class="menuItem" data-cat="canaisabertos">
+            Canais Abertos
+        </div>
 
-        <div class="menuItem" data-cat="musica">Música</div>
 
-        <div class="menuItem" data-cat="comedia">Comédia</div>
+        <div class="menuItem" data-cat="band">
+            Band
+        </div>
 
-        <div class="menuItem" data-cat="anime">Anime</div>
 
-        <div class="menuItem" data-cat="religioso">Religioso</div>
+        <div class="menuItem" data-cat="record">
+            Record
+        </div>
 
-        <div class="menuItem" data-cat="dorama">Dorama</div>
 
-        <div class="menuItem" data-cat="suspense">Suspense</div>
+        <div class="menuItem" data-cat="sbt">
+            SBT
+        </div>
+
+
+        <div class="menuItem" data-cat="documentario">
+            Documentários
+        </div>
+
+
+        <div class="menuItem" data-cat="joveminfantil">
+            Jovem Infantil
+        </div>
+
+
+        <div class="menuItem" data-cat="news">
+            News
+        </div>
+
+
+        <div class="menuItem" data-cat="variedades">
+            Variedades
+        </div>
+
+
+        <div class="menuItem" data-cat="filmesesereis">
+            Filmes e Séries
+        </div>
+
+
+        <div class="menuItem" data-cat="hbo">
+            HBO
+        </div>
+
+
+        <div class="menuItem" data-cat="telecine">
+            Telecine
+        </div>
+
+
+        <div class="menuItem" data-cat="esportes">
+            Esportes
+        </div>
+
+
+        <div class="menuItem" data-cat="sportv">
+            SporTV
+        </div>
+
+
+        <div class="menuItem" data-cat="premiere">
+            Premiere
+        </div>
+
+
+        <div class="menuItem" data-cat="caze">
+            Cazé
+        </div>
+
+
 
         <button id="atualizarLista">
 
-            Atualizar Lista
+            🔄 Atualizar Lista
 
         </button>
 
+
+
     </div>
 
-    <div class="conteudo">
+
+
+ <div class="conteudo">
+
+    <div class="listaCanais">
+
+        <div class="tituloColuna">
+            CANAIS
+        </div>
+
+        <div id="listaCanais">
+
+        </div>
+
+    </div>
+
+    <div class="playerArea">
+
+        <div class="tituloColuna">
+            PLAYER
+        </div>
 
         <div class="player">
 
@@ -413,8 +575,7 @@ background:#111;
                 id="videoPlayer"
                 playsinline
                 controls
-                preload="metadata"
-                style="display:none;">
+                preload="metadata">
             </video>
 
             <iframe
@@ -425,432 +586,681 @@ background:#111;
 
         </div>
 
-        <div class="grid" id="gridFilmes">
-
-        </div>
-
     </div>
 
 </div>
 
+
+
 </div>
 
-<script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.2/dist/hls.min.js"></script>
 
+
+<script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.2/dist/hls.min.js"></script>
 <script>
 
-const enderecoRAW="https://raw.githubusercontent.com/Isac-Arqueiro/mylist/master/canais.m3u";
 
-const player=new Plyr('#videoPlayer',{
+const enderecoRAW =
+"https://raw.githubusercontent.com/Isac-Arqueiro/mylist/master/canais.m3u";
 
-fullscreen:{enabled:true},
 
-controls:[
-'play-large',
-'play',
-'progress',
-'current-time',
-'mute',
-'volume',
-'settings',
-'pip',
-'airplay',
-'fullscreen'
-]
+
+const videoPlayer = document.getElementById("videoPlayer");
+
+const iframePlayer = document.getElementById("iframePlayer");
+
+
+
+const player = new Plyr(videoPlayer,{
+
+    fullscreen:{
+        enabled:true
+    },
+
+    controls:[
+
+        'play-large',
+        'play',
+        'progress',
+        'current-time',
+        'mute',
+        'volume',
+        'settings',
+        'pip',
+        'fullscreen'
+
+    ]
 
 });
 
-let hls;
+// Esconde os controles ao iniciar
+player.toggleControls(false);
+
+let hls = null;
+
+
+
+// ===============================
+// ABRIR CANAL
+// ===============================
+
 
 function trocar(url){
 
-    const video = document.getElementById("videoPlayer");
-    const iframe = document.getElementById("iframePlayer");
 
-    // Fecha iframe
-    iframe.style.display = "none";
-    iframe.src = "";
-
-    video.style.display = "block";
-
-    // Destroi player anterior
-    if(hls){
-        hls.destroy();
-        hls = null;
-    }
-
-    // Se for M3U8
-    if(url.endsWith(".m3u8")){
-
-        if(Hls.isSupported()){
-
-            hls = new Hls({
-                enableWorker:true,
-                lowLatencyMode:true
-            });
-
-            hls.loadSource(url);
-            hls.attachMedia(video);
-
-            hls.on(Hls.Events.MANIFEST_PARSED,function(){
-                video.play();
-            });
-
-            hls.on(Hls.Events.ERROR,function(event,data){
-                console.log(data);
-            });
-
-        }else if(video.canPlayType("application/vnd.apple.mpegurl")){
-
-            video.src = url;
-            video.play();
-
-        }
-
+    if(!url){
         return;
     }
 
-    // MP4
-    video.src = url;
-    video.load();
-    video.play();
-
-}
 
 
-async function carregarFilmes() {
+    iframePlayer.style.display="none";
 
-    try {
+    iframePlayer.src="";
 
-        const resposta = await fetch(enderecoRAW + "?v=" + Date.now());
 
-        const texto = await resposta.text();
 
-        let lista = [];
+    videoPlayer.style.display="block";
 
-        // JSON
-        if (texto.trim().startsWith("[")) {
 
-            lista = JSON.parse(texto);
 
-        }
+    if(hls){
 
-        // M3U
-        else if (texto.includes("#EXTM3U")) {
+        hls.destroy();
 
-            lista = converterM3U(texto);
-
-        }
-
-        const grid = document.getElementById("gridFilmes");
-
-        grid.innerHTML = "";
-
-        lista.forEach(f => {
-
-            grid.innerHTML += `
-
-<div
-
-class="card ${f.categoria.toLowerCase()}"
-
-data-video="${f.video}"
-
-data-categoria="${f.categoria.toLowerCase()}"
-
->
-
-<img src="${f.imagem}">
-
-<h3>${f.titulo}</h3>
-
-</div>
-
-`;
-
-        });
-
-        ligarEventosCards();
-
-        filtrarCategoria();
-
-    } catch (e) {
-
-        console.log(e);
-
-        alert("Erro ao carregar lista.");
+        hls=null;
 
     }
 
-}
 
-function ligarEventosCards(){
 
-    document.querySelectorAll(".card").forEach(card=>{
+    if(url.includes(".m3u8")){
 
-        card.onclick=function(){
 
-            trocar(this.dataset.video);
+        if(Hls.isSupported()){
 
-        }
 
-    });
+            hls=new Hls({
 
-}
+                enableWorker:true,
 
-function converterM3U(m3u) {
-
-    const linhas = m3u.split("\n");
-
-    const lista = [];
-
-    let titulo = "";
-    let imagem = "";
-    let categoria = "";
-
-    for (let i = 0; i < linhas.length; i++) {
-
-        const linha = linhas[i].trim();
-
-        if (linha.startsWith("#EXTINF")) {
-
-            const nome = linha.match(/,(.*)$/);
-
-            titulo = nome ? nome[1] : "Sem título";
-
-            const logo = linha.match(/tvg-logo="([^"]*)"/);
-
-            imagem = logo && logo[1] !== ""
-                ? logo[1]
-                : "https://via.placeholder.com/300x450?text=SEM+CAPA";
-
-            const grupo = linha.match(/group-title="([^"]*)"/);
-
-            categoria = grupo
-                ? grupo[1]
-                    .replace("C •", "")
-                    .trim()
-                    .toLowerCase()
-                : "canais";
-
-        }
-
-        else if (
-            linha.startsWith("http://") ||
-            linha.startsWith("https://")
-        ) {
-
-            lista.push({
-
-                titulo,
-
-                imagem,
-
-                video: linha,
-
-                categoria
+                lowLatencyMode:true
 
             });
 
+
+
+            hls.loadSource(url);
+
+            hls.attachMedia(videoPlayer);
+
+
+
+            hls.on(
+                Hls.Events.MANIFEST_PARSED,
+                ()=>{
+
+                    videoPlayer.play();
+
+                }
+            );
+
+
+
         }
+
+
+        else if(
+            videoPlayer.canPlayType(
+            "application/vnd.apple.mpegurl")
+        ){
+
+
+            videoPlayer.src=url;
+
+            videoPlayer.play();
+
+
+        }
+
+
+        return;
 
     }
 
-    return lista;
+
+
+    videoPlayer.src=url;
+
+    videoPlayer.load();
+
+    videoPlayer.play();
+
+
 
 }
+
+
+
+// ===============================
+// CARREGAR LISTA
+// ===============================
+
+
+
+async function carregarFilmes(){
+
+
+try{
+
+
+const resposta = await fetch(
+
+    enderecoRAW + "?v=" + Date.now()
+
+);
+
+
+
+const texto = await resposta.text();
+
+
+
+let lista=[];
+
+
+
+if(texto.trim().startsWith("[")){
+
+
+    lista=JSON.parse(texto);
+
+
+}
+
+
+
+else if(texto.includes("#EXTM3U")){
+
+
+    lista=converterM3U(texto);
+
+
+}
+
+
+
+mostrarLista(lista);
+
+
+
+}
+
+catch(erro){
+
+
+console.log(
+"Erro ao carregar lista:",
+erro
+);
+
+
+
+}
+
+
+
+}
+
+
+
+// ===============================
+// MOSTRAR CARDS
+// ===============================
+
+
+
+let listaCompleta = [];
+
+function mostrarLista(lista){
+
+    listaCompleta = lista;
+
+    atualizarListaCanais();
+
+}
+
+function atualizarListaCanais(){
+
+    const listaDiv = document.getElementById("listaCanais");
+
+    listaDiv.innerHTML = "";
+
+    let canais = listaCompleta;
+
+    if(categoriaAtual !== "todos"){
+
+        canais = canais.filter(canal =>
+            canal.categoria === categoriaAtual
+        );
+
+    }
+
+    canais.forEach(canal=>{
+
+        const item = document.createElement("div");
+
+        item.className = "canal";
+
+        item.dataset.video = canal.video;
+
+        item.innerHTML = `
+
+            <img src="${canal.imagem}">
+
+            <span>${canal.titulo}</span>
+
+        `;
+
+        item.onclick = function(){
+
+            document
+            .querySelectorAll(".canal")
+            .forEach(c=>c.classList.remove("active"));
+
+            this.classList.add("active");
+
+            trocar(canal.video);
+
+        };
+
+        listaDiv.appendChild(item);
+
+});
+
+const primeiro = document.querySelector(".canal");
+
+if(primeiro){
+
+    primeiro.classList.add("active");
+
+    trocar(primeiro.dataset.video);
+
+}
+}
+
+
+// ===============================
+// CONVERSOR M3U
+// ===============================
+
+
+
+function converterM3U(m3u){
+
+
+
+const linhas=m3u.split(/\r?\n/);
+
+
+
+const lista=[];
+
+
+
+let titulo="";
+
+let imagem="";
+
+let categoria="";
+
+
+
+for(
+let i=0;
+i<linhas.length;
+i++
+){
+
+
+
+let linha=linhas[i].trim();
+
+
+
+if(
+linha.startsWith("#EXTINF")
+){
+
+
+
+let nome=
+linha.match(/,(.*)$/);
+
+
+
+titulo=
+nome ? nome[1] : "Sem título";
+
+
+
+let logo=
+linha.match(/tvg-logo="([^"]*)"/);
+
+
+
+imagem=
+logo ?
+logo[1]
+:
+"https://via.placeholder.com/300x450?text=SEM+CAPA";
+
+
+
+let grupo=
+linha.match(/group-title="([^"]*)"/);
+
+
+
+categoria=
+grupo ?
+grupo[1]
+.replace("C •","")
+.trim()
+.toLowerCase()
+:
+"canais";
+
+
+
+}
+
+
+
+else if(
+linha &&
+linha.startsWith("http")
+){
+
+
+
+lista.push({
+
+titulo,
+
+imagem,
+
+video:
+linha.split("|")[0].trim(),
+
+categoria
+
+});
+
+
+
+}
+
+
+
+}
+
+
+
+return lista;
+
+
+
+}
+
+
+
+// ===============================
+// INICIAR
+// ===============================
+
+
 
 window.onload=function(){
 
-carregarFilmes();
+    carregarFilmes();
 
-}
-
-document.getElementById("atualizarLista").onclick=function(){
-
-carregarFilmes();
+    atualizarListaCanais();
 
 };
+
+document
+.getElementById("atualizarLista")
+.onclick=function(){
+
+    carregarFilmes();
+
+};
+
+
 
 </script>
 <script>
 
-// ==============================
-// MENU LATERAL
-// ==============================
+
+// =================================
+// MENU DE CATEGORIAS
+// =================================
+
 
 let categoriaAtual = "todos";
 
-const menu = document.querySelectorAll(".menuItem");
 
-menu.forEach(item=>{
+const menuItems =
+document.querySelectorAll(".menuItem");
+
+
+
+menuItems.forEach(item=>{
+
 
     item.onclick=function(){
 
-        menu.forEach(m=>m.classList.remove("active"));
+
+        menuItems.forEach(m=>{
+
+            m.classList.remove("active");
+
+        });
+
+
 
         this.classList.add("active");
 
-        categoriaAtual=this.dataset.cat;
+
+
+        categoriaAtual =
+        this.dataset.cat;
+
+
 
         filtrarCategoria();
 
-    }
+        atualizarListaCanais();
+
+
+
+    };
+
 
 });
 
+
+
+
+
 function filtrarCategoria(){
 
-    const cards=document.querySelectorAll(".card");
 
-    cards.forEach(card=>{
+focoLista=0;
 
-        if(categoriaAtual=="todos"){
 
-            card.style.display="block";
+atualizarFoco();
 
-        }
 
-        else if(card.classList.contains(categoriaAtual)){
-
-            card.style.display="block";
-
-        }
-
-        else{
-
-            card.style.display="none";
-
-        }
-
-    });
-
-    focoLista=0;
-
-    atualizarFocoLista();
 
 }
 
-// ==================================
-// CONTROLE REMOTO TV
-// ==================================
 
 
-let areaFoco = "menu";
 
-let focoMenu = 0;
 
-let focoLista = 0;
+// =================================
+// CONTROLE REMOTO
+// =================================
+
+
+
+let areaFoco="menu";
+
+
+let focoMenu=0;
+
+
+let focoLista=0;
+
+
 
 
 
 function pegarMenu(){
 
-    return [...document.querySelectorAll(".menuItem")];
+
+return [
+...document.querySelectorAll(".menuItem")
+];
+
 
 }
+
 
 
 
 function pegarLista(){
 
-    return [...document.querySelectorAll(".card")]
-    .filter(c=>c.style.display!="none");
+    return [
+        ...document.querySelectorAll(".canal")
+    ];
 
 }
 
 
-
-function atualizarFocoRemoto(){
-
-
-    document.querySelectorAll(".menuItem")
-    .forEach(item=>{
-
-        item.classList.remove("focus");
-
-    });
+function atualizarFoco(){
 
 
 
-    document.querySelectorAll(".card")
-    .forEach(item=>{
-
-        item.classList.remove("focus");
-
-    });
+document
+.querySelectorAll(".menuItem")
+.forEach(item=>{
 
 
-
-    if(areaFoco=="menu"){
-
-
-        let menu=pegarMenu();
+item.classList.remove("focus");
 
 
-        if(menu[focoMenu]){
-
-
-            menu[focoMenu].classList.add("focus");
-
-
-            menu[focoMenu]
-            .scrollIntoView({
-
-                block:"center"
-
-            });
-
-
-        }
-
-
-    }
+});
 
 
 
-    else{
+
+document
+.querySelectorAll(".canal")
+.forEach(canal=>{
+
+canal.classList.remove("focus");
+
+});
 
 
-        let lista=pegarLista();
+if(areaFoco==="menu"){
 
 
-        if(lista[focoLista]){
+
+let menu=
+pegarMenu();
 
 
-            lista[focoLista]
-            .classList.add("focus");
+
+if(menu[focoMenu]){
 
 
-            lista[focoLista]
-            .scrollIntoView({
-
-                block:"center"
-
-            });
+menu[focoMenu]
+.classList.add("focus");
 
 
-        }
 
+menu[focoMenu]
+.scrollIntoView({
 
-    }
+behavior:"smooth",
+
+block:"center"
+
+});
+
 
 
 }
 
 
 
-document.addEventListener("keydown",function(e){
-
-
-let tecla=e.key;
+}
 
 
 
-let menu=pegarMenu();
+else if(areaFoco==="lista"){
 
-let lista=pegarLista();
+let lista = pegarLista();
+
+if(lista[focoLista]){
+
+lista[focoLista].classList.add("focus");
+
+lista[focoLista].scrollIntoView({
+
+behavior:"smooth",
+
+block:"nearest"
+
+});
+
+}
+
+}
+
+else if(areaFoco==="player"){
+
+    videoPlayer.focus();
+
+}
+
+}
+
+
+
+
+
+document.addEventListener(
+"keydown",
+function(e){
+
+
+
+const tecla=e.key;
+
+
+
+const menu=pegarMenu();
+
+
+const lista=pegarLista();
+
 
 
 
@@ -861,19 +1271,23 @@ switch(tecla){
 case "ArrowDown":
 
 
-if(areaFoco=="menu"){
+
+if(areaFoco==="menu"){
 
 
 focoMenu++;
 
 
-if(focoMenu>=menu.length)
+if(
+focoMenu>=menu.length
+){
 
 focoMenu=menu.length-1;
 
-
 }
 
+
+}
 
 else{
 
@@ -881,17 +1295,20 @@ else{
 focoLista++;
 
 
-if(focoLista>=lista.length)
+if(
+focoLista>=lista.length
+){
 
 focoLista=lista.length-1;
+
+}
 
 
 }
 
 
 
-atualizarFocoRemoto();
-
+atualizarFoco();
 
 break;
 
@@ -902,19 +1319,21 @@ break;
 case "ArrowUp":
 
 
-if(areaFoco=="menu"){
+
+if(areaFoco==="menu"){
 
 
 focoMenu--;
 
 
-if(focoMenu<0)
+if(focoMenu<0){
 
 focoMenu=0;
 
-
 }
 
+
+}
 
 else{
 
@@ -922,17 +1341,18 @@ else{
 focoLista--;
 
 
-if(focoLista<0)
+if(focoLista<0){
 
 focoLista=0;
+
+}
 
 
 }
 
 
 
-atualizarFocoRemoto();
-
+atualizarFoco();
 
 break;
 
@@ -942,21 +1362,21 @@ break;
 
 case "ArrowRight":
 
+if(areaFoco==="menu"){
 
-if(areaFoco=="menu"){
+    areaFoco="lista";
 
-
-areaFoco="lista";
-
-
-focoLista=0;
-
+    focoLista=0;
 
 }
 
+else if(areaFoco==="lista"){
 
-atualizarFocoRemoto();
+    areaFoco="player";
 
+}
+
+atualizarFoco();
 
 break;
 
@@ -966,8 +1386,25 @@ break;
 
 case "ArrowLeft":
 
+if(areaFoco==="player"){
 
-if(areaFoco=="lista"){
+    areaFoco="lista";
+
+}
+
+else if(areaFoco==="lista"){
+
+    areaFoco="menu";
+
+}
+
+atualizarFoco();
+
+break;
+
+
+
+if(areaFoco==="lista"){
 
 
 areaFoco="menu";
@@ -976,7 +1413,7 @@ areaFoco="menu";
 }
 
 
-atualizarFocoRemoto();
+atualizarFoco();
 
 
 break;
@@ -987,41 +1424,41 @@ break;
 
 case "Enter":
 
+    if(areaFoco==="menu"){
 
+        if(menu[focoMenu]){
 
-if(areaFoco=="menu"){
+            menu[focoMenu].click();
 
+            areaFoco="lista";
 
-menu[focoMenu].click();
+            focoLista=0;
 
+        }
 
-areaFoco="lista";
+    }
 
+    else if(areaFoco==="lista"){
 
-focoLista=0;
+        if(lista[focoLista]){
 
+            lista[focoLista].click();
+
+            areaFoco="player";
+
+        }
+
+    }
+
+    else if(areaFoco==="player"){
+
+    player.toggleControls(true);
+
+    player.fullscreen.toggle();
 
 }
 
-
-else{
-
-
-if(lista[focoLista]){
-
-
-lista[focoLista].click();
-
-
-}
-
-
-}
-
-
-
-atualizarFocoRemoto();
-
+    atualizarFoco();
 
 break;
 
@@ -1030,9 +1467,21 @@ break;
 
 case "Escape":
 
+    if(player.fullscreen.active){
 
-history.back();
+        player.fullscreen.exit();
 
+        player.toggleControls(false);
+
+        areaFoco="lista";
+
+        atualizarFoco();
+
+    }else{
+
+        history.back();
+
+    }
 
 break;
 
@@ -1045,128 +1494,27 @@ break;
 });
 
 
-</script>
 
 
-</body>
 
-</html>
+// inicia foco no primeiro item
 
-<script>
-console.log("Funcionando!");
-  
-</script>
 
-</body>
-</html>
-  
+window.addEventListener(
+"load",
+()=>{
 
-<script>
-console.log("Funcionando!");
-  
-</script>
 
-</body>
-</html>
-  
+atualizarFoco();
 
-<script>
-console.log("Funcionando!");
-
-</script>
-<style>
-#btnInstall {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-
-  border: none;
-  border-radius: 50px;
-  padding: 14px 20px;
-
-  background: #000;
-  color: #fff;
-
-  font-size: 16px;
-  font-weight: bold;
-
-  box-shadow: 0 4px 12px rgba(0,0,0,.3);
-
-  cursor: pointer;
-
-  display: none;
-
-  transition: all .3s ease;
-}
-
-#btnInstall:hover {
-  transform: scale(1.05);
-}
-</style>
-
-<button id="btnInstall">📲 Instalar App</button>
-
-<script>
-let deferredPrompt;
-
-const btnInstall = document.getElementById("btnInstall");
-
-// Verifica se já está instalado
-function isAppInstalled() {
-  return window.matchMedia('(display-mode: standalone)').matches
-    || window.navigator.standalone === true;
-}
-
-// Se não estiver instalado
-if (!isAppInstalled()) {
-
-  window.addEventListener("beforeinstallprompt", (e) => {
-
-    e.preventDefault();
-
-    deferredPrompt = e;
-
-    btnInstall.style.display = "block";
-  });
 
 }
 
-// Clique no botão
-btnInstall.addEventListener("click", async () => {
+);
 
-  if (!deferredPrompt) return;
 
-  deferredPrompt.prompt();
 
-  const { outcome } = await deferredPrompt.userChoice;
-
-  console.log("Resultado:", outcome);
-
-  deferredPrompt = null;
-
-  btnInstall.style.display = "none";
-});
-
-// Quando instalar
-window.addEventListener("appinstalled", () => {
-
-  console.log("PWA instalado");
-
-  btnInstall.style.display = "none";
-});
-
-// Registrar Service Worker
-if ("serviceWorker" in navigator) {
-
-  navigator.serviceWorker.register("./service-worker.js")
-    .then(() => console.log("SW registrado"))
-    .catch((err) => console.log("Erro SW:", err));
-
-}
 </script>
-</body>
-</html>
 
 
 <script>
